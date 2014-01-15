@@ -1,11 +1,14 @@
 apply plugin: 'eclipse'
-apply plugin: 'java'
 apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'jetty'
+apply plugin: 'war'
 
 repositories {
 	mavenCentral()
 }
 
 dependencies {
-	testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+	providedCompile 'javax.servlet:servlet-api:2.5'
+	compile 'com.sun.xml.ws:jaxws-rt:2.2.8'
 }
