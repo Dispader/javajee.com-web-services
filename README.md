@@ -21,3 +21,13 @@ The Gradle build for this project supports building a WAR file which can be depl
 ###[wsimport](http://www.javajee.com/articles/jaxws-tools-wsimport-and-wsgen)
 
 - `gradle wsimport`
+
+###[Rich Data Types using wsimport](http://www.javajee.com/articles/creating-a-soap-web-service-with-rich-data-types-using-wsimport)
+
+The Gradle definition to generate class files from the JAX-WS generated service WSDL has been commented out, and the service endpoint 
+classes have been imported into the `com.javajee.ws.wsimportex.client` directory.
+
+####execution
+
+- `com.javajee.ws.wsimportex.EmployeeServicePublisher.main()`
+- `com.javajee.ws.wsimportex.EmployeeClient.main()`

@@ -32,7 +32,10 @@ task wsimport {
                      destdir: sourceSets.main.output.classesDir,
                      sourcedestdir: destDir,
                      wsdl:"${projectDir}/src/main/resources/weather.wsdl")
+//            wsimport(keep:true,
+//                destdir: sourceSets.main.output.classesDir,
+//                sourcedestdir: destDir,
+//                wsdl:"${projectDir}/src/main/resources/ex4.wsdl")
         }
     }
 }
-compileJava.dependsOn(wsimport)
