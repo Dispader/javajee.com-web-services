@@ -17,3 +17,7 @@ The Gradle build for this project supports building a WAR file which can be depl
 
 - `gradle jettyRun`
 - point a Web browser at the displayed URL
+
+###[wsimport](http://www.javajee.com/articles/jaxws-tools-wsimport-and-wsgen)
+
+- `gradle wsimport`

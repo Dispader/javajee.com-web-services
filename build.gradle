@@ -5,10 +5,34 @@ apply plugin: 'jetty'
 apply plugin: 'war'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
+}
+
+configurations {
+    jaxws
 }
 
 dependencies {
-	providedCompile 'javax.servlet:servlet-api:2.5'
-	compile 'com.sun.xml.ws:jaxws-rt:2.2.8'
+    jaxws 'com.sun.xml.ws:jaxws-tools:2.1.4' 
+    
+    providedCompile 'javax.servlet:servlet-api:2.5'
+    compile 'com.sun.xml.ws:jaxws-rt:2.2.8'
 }
+
+task wsimport {
+    doLast {
+        destDir = file("${buildDir}/generated")
+        ant {
+            sourceSets.main.output.classesDir.mkdirs()
+            destDir.mkdirs()
+            taskdef(name:'wsimport',
+                    classname:'com.sun.tools.ws.ant.WsImport',
+                    classpath:configurations.jaxws.asPath)
+            wsimport(keep:true,
+                     destdir: sourceSets.main.output.classesDir,
+                     sourcedestdir: destDir,
+                     wsdl:"${projectDir}/src/main/resources/weather.wsdl")
+        }
+    }
+}
+compileJava.dependsOn(wsimport)
