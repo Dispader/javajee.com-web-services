@@ -31,3 +31,22 @@ classes have been imported into the `com.javajee.ws.wsimportex.client` directory
 
 - `com.javajee.ws.wsimportex.EmployeeServicePublisher.main()`
 - `com.javajee.ws.wsimportex.EmployeeClient.main()`
+
+###[XSD mapping](http://www.javajee.com/articles/jaxb2-marshaling-and-unmarshaling-example-xsd-to-java-binding-hands-on)
+
+
+Packages were generated using Eclipse's interface to XJC; however, Gradle can also handle this.
+
+```Groovy
+ant.xjc(destdir : '${jaxbDest}', removeOldOutput:'yes', extension:'true') {
+  arg(line:'-Xequals -XhashCode -XtoString -Xcopyable')
+
+  schema(dir:'src/main/schema', includes:'C.xsd')
+  binding(dir:'src/main/schema', includes:'*.xjb)
+}
+```
+
+####execution
+
+- `com.javajee.ws.wsdex.JAXBMarshallingExample.main()`
+- `com.javajee.ws.wsdex.JAXBUnmarshallingExample.main()`

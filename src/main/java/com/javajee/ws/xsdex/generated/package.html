@@ -1,0 +1,16 @@
+<html>
+    <head></head>
+    <body>
+        <p>
+            Packages were generated using Eclipse's interface to XJC; however, Gradle can also handle this.
+        </p>
+        <pre>
+ant.xjc(destdir : '${jaxbDest}', removeOldOutput:'yes', extension:'true') {
+  arg(line:'-Xequals -XhashCode -XtoString -Xcopyable')
+
+  schema(dir:'src/main/schema', includes:'C.xsd')
+  binding(dir:'src/main/schema', includes:'*.xjb)
+}
+        </pre>
+    </body>
+</html>
