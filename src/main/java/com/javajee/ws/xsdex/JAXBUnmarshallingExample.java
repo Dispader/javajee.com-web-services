@@ -5,13 +5,9 @@ import java.io.File;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 import com.javajee.ws.xsdex.generated.HelloType;
-import com.javajee.ws.xsdex.generated.NameType;
-import com.javajee.ws.xsdex.generated.ObjectFactory;
-import com.javajee.ws.xsdex.generated.TitleType;
 
 public class JAXBUnmarshallingExample
 {
@@ -22,6 +18,7 @@ public class JAXBUnmarshallingExample
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         
         // Unmarshall.
+        @SuppressWarnings("unchecked")
         JAXBElement<HelloType> helloElement = (JAXBElement<HelloType>)unmarshaller.unmarshal(new File("src/main/resources/hello.xml"));
         
         // Extract the data (as a very simple processing example).
